@@ -763,12 +763,14 @@ function addPlayer() {
     players.push(p);
   }
 
-  ${Object.entries(p.modes).map(([mode,tier])=>`
-<div class="icon">
-  <img src="${ICONS[mode] || ICONS.Sword}">
-  <div class="tier ${tier.startsWith("HT") ? "ht" : "lt"}">${tier}</div>
-</div>
-`).join("")}
+  ${Object.entries(p.modes).map(([mode,tier]) => {
+  return `
+  <div class="icon">
+    <img src="${ICONS[mode] || ICONS.Sword}">
+    <div class="tier ${tier.startsWith("HT") ? "ht" : "lt"}">${tier}</div>
+  </div>
+  `;
+}).join("")}
 
   // ✅ SAVE (IMPORTANT LINE)
   localStorage.setItem("players", JSON.stringify(players));
