@@ -748,19 +748,27 @@ function renderASubs(){
   </tr>`).join(''):'<tr><td colspan="5" style="text-align:center;padding:1.5rem;color:var(--text3)">No pending submissions</td></tr>';
 }
 
-function addPlayer(){
-  const name=document.getElementById('aU').value.trim();
-  const gm=document.getElementById('aGM').value;
-  const tier=document.getElementById('aTr').value;
-  const ptsVal=document.getElementById('aPts').value;
-  const pts=ptsVal!==''?parseInt(ptsVal):(TIER_PTS[tier]||0);
-  const region=document.getElementById('aReg').value.trim()||'NA';
-  const face=document.getElementById('aFaceUrl').value.trim();
-  if(!name||!gm){notify('Fill in username and gamemode.',true);return;}
-  players.push({id:nextId++,name,gm,tier,pts,region,face});
-  document.getElementById('aU').value='';document.getElementById('aPts').value='';
-  document.getElementById('aReg').value='';document.getElementById('aFaceUrl').value='';
-  renderAdmin();notify(`${name} added to ${tier} Tier!`);
+function addPlayer() {
+  let name = document.getElementById("name").value.trim();
+  let region = document.getElementById("region").value.trim() || "NA";
+  let mode = document.getElementById("mode").value.trim();
+  let tier = document.getElementById("tier").value.trim().toUpperCase();
+
+  if (!name || !mode || !tier) return;
+
+  let p = players.find(x => x.name.toLowerCase() === name.toLowerCase());
+
+  if (!p) {
+    p = { name, region, modes: {} };
+    players.push(p);
+  }
+
+  p.modes[mode] = tier;
+
+  // ✅ SAVE (IMPORTANT LINE)
+  localStorage.setItem("players", JSON.stringify(players));
+
+  render();
 }
 
 function editP(id){
