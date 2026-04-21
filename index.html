@@ -483,16 +483,16 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:1
 <script>
 const ADMIN_PW='MeowGopGop';
 
-const GMS=[
-  {id:'nethpot', name:'NethPot',    icon:'🧪', desc:'Nether Potion PvP — fast-paced, requires precise potion timing and aggression control.'},
-  {id:'sword',   name:'Sword',      icon:'⚔️', desc:'Classic sword combat — combos, critical hits, and mechanical timing define the best.'},
-  {id:'uhc',     name:'UHC',        icon:'❤️', desc:'Ultra Hardcore — no natural regeneration. The most demanding test of survival PvP.'},
-  {id:'diapot',  name:'DiaPot',     icon:'💎', desc:'Diamond Potion PvP — heavy armor combined with fast potion mechanics.'},
-  {id:'vanilla', name:'Vanilla',    icon:'✨', desc:'Crystal/Vanilla PvP — the highest technical skillcap PvP gamemode in Java Edition.'},
-  {id:'smp',     name:'SMP',        icon:'🏔️', desc:'Survival Multiplayer PvP — gear-based combat with terrain and environmental play.'},
-  {id:'mace',    name:'Mace',       icon:'🔨', desc:'Mace PvP (1.21+) — new weapon with unique fall-damage and knockback mechanics.'},
-  {id:'axe',     name:'Axe',        icon:'🪓', desc:'Axe PvP — shield breaking, critical hits, and powerful burst damage.'},
-];
+const ICONS = {
+  Sword: "https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/44/Diamond_Sword_JE3_BE3.png",
+  Axe: "https://static.wikia.nocookie.net/minecraft_gamepedia/images/2/2d/Diamond_Axe_JE3_BE3.png",
+  Crystal: "https://static.wikia.nocookie.net/minecraft_gamepedia/images/6/6e/End_Crystal_JE2_BE2.png",
+  NethPot: "https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/5a/Netherite_Helmet_JE2_BE2.png",
+  UHC: "https://static.wikia.nocookie.net/minecraft_gamepedia/images/6/66/Shield_JE2_BE2.png",
+  SMP: "https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/4c/Ender_Pearl_JE3_BE3.png",
+  Mace: "https://static.wikia.nocookie.net/minecraft_gamepedia/images/3/36/Netherite_Ingot_JE1_BE2.png",
+  DiaPot: "https://static.wikia.nocookie.net/minecraft_gamepedia/images/e/e3/Splash_Potion_of_Healing_JE2_BE2.png"
+};
 
 const RANKS=[
   {key:'grandmaster',label:'Combat Grandmaster',min:161,max:Infinity,cls:'rb-grandmaster',card:'rc-grandmaster',icon:'👑',color:'#ffd166',desc:'The absolute pinnacle — 161+ pts. Feared by everyone, surpassed by none.'},
